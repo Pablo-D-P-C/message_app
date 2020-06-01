@@ -1,0 +1,44 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% extends "base.html" %}
+<link rel="stylesheet" href="login.css">
+{% block content %}
+{% if user %}
+    <a href="/">Main</a> | <a href="/profile">Profile</a> | <a href="/users">All Users</a> | <a href="/weather">Wheather</a>
+    <h1>What do you want to do?</h1>
+    <a href="/send/message">Send a Message</a>
+{% else %}
+    <form action="/login" method="post">
+        <div id="login">
+            <h3 class="text-center text-white pt-5">LOGIN</h3>
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" action="" method="post">
+                                <h3 class="text-center text-info">Login</h3>
+                                <div class="form-group">
+                                    <label for="user-name" class="text-info">Username:</label><br>
+                                    <input type="text" name="user-name" id="user-name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-password" class="text-info">Password:</label><br>
+                                    <input type="password" name="user-password" id="user-password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-email" class="text-info">Email:</label><br>
+                                    <input type="email" name="user-email" id="user-email" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>send a message</title>
+    </head>
+    <body>
+    <form action="/send" method="post">
+        <select name="sender_id" id="sender">
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.name }}</option>
+            {%endfor%}
+        </select>
+        <select name="receiver_id" id="receiver">
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.name }}</option>
+            {%endfor%}
+        </select>
+        <textarea name="message" id="message" cols="30" rows="10">
+
+        </textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% for message in message %}
+        <p>{{message.message}}</p>
+    {% endfor %}
+
+    </body>
+</html>
